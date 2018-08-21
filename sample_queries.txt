@@ -1,0 +1,59 @@
+fragment UserFields on User {
+  id
+  email
+  admin
+  preferredName
+  preferredObjectPronoun
+  preferredSubjectPronoun
+  createdAt
+  createdAtMs
+  updatedAt
+  updatedAtMs
+}
+
+query User {
+  user(id: 1) {
+    ...UserFields
+  }
+}
+
+query allUsers {
+  users {
+    ...UserFields
+  }
+}
+
+query BookInputObjectTypeQuery {
+  __type(name: "UserInputObject") {
+    name
+  }
+}
+
+query Schema {
+  __schema {
+    types {
+      name
+    }
+    directives {
+      name
+    }
+  }
+}
+
+mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
+    errors
+    user {
+      id
+      email
+    }
+  }
+}
+{
+  "input": {
+    "userInput": {
+      "email": "hoopy@frills.info",
+      "password": "xyzzzy"
+    }
+  }
+}

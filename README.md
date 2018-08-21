@@ -112,3 +112,12 @@ User model already created. Now making Author, Book, and Note models
 
 - added index for `noteable`
 - Notes are Polymorphic: User, Author, and Book all have notes as noteable
+
+## Tests
+
+- flesh out model tests, checking validations and associations
+- flesh out factories
+
+## Let's start some graphql
+
+    bin/rails g graphql:object User id:int email:string
