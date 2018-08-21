@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require "faker"
+
+User.find_or_create_by(email: "admin") do |a|
+  a.admin = true
+  a.password = "password"
+  a.password_confirmation = "password"
+end
+
+4.times do
+  Factory.create :full_user
+end

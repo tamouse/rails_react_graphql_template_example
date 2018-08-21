@@ -8,6 +8,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.date :purchased_on
       t.date :finished_reading_on
       t.integer :rating
+      t.boolean :private, null: false, default: false
 
       t.timestamps
     end

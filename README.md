@@ -111,3 +111,4 @@ User model already created. Now making Author, Book, and Note models
     bin/rails g model Note 'noteable:references{polymorphic}' body:text
 
 - added index for `noteable`
+- Notes are Polymorphic: User, Author, and Book all have notes as noteable

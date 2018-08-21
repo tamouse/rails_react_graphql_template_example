@@ -1,6 +1,6 @@
 class Note < ApplicationRecord
   belongs_to :noteable, polymorphic: true
 
-  validates_precense_of :body
+  validates_presence_of :body
 
 end
