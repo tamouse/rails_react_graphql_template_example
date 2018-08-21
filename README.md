@@ -87,3 +87,27 @@ Install webpacker and react-rails
     yarn upgrade
     bin/rails webpacker:install:react
     bin/rails g react:install
+
+
+## Models!
+
+User model already created. Now making Author, Book, and Note models
+
+### Author
+
+    bin/rails g model Author name url
+
+- Modified migration: name cannot be `nil`
+
+### Book
+
+    bin/rails g model Book title owner:belongs_to author:belongs_to \
+      isbn purchased_on:date finished_reading_on:date rating:integer
+
+- `title` cannot be `nil`
+
+### Note
+
+    bin/rails g model Note 'noteable:references{polymorphic}' body:text
+
+- added index for `noteable`
