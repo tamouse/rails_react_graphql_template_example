@@ -121,3 +121,22 @@ User model already created. Now making Author, Book, and Note models
 ## Let's start some graphql
 
     bin/rails g graphql:object User id:int email:string
+
+## ActiveStorage and Attachments
+
+2019-01-17T23:49:52-0600
+
+Reading: https://guides.rubyonrails.org/active_storage_overview.html
+
+    $ bin/rails active_storage:install
+    Copied migration 20190118055048_create_active_storage_tables.active_storage.rb from active_storage
+
+Added several attachment fixture files.
+
+Add an avatar to the admin user:
+
+```ruby
+files = Dir[Rails.root.join('test/fixtures/files/**)]
+admin = User.find_by(admin: true)
+admin.avatar.attach(io: File.open(files.first)), name: File.basename(files.first))
+```
