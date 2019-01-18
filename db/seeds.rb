@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "faker"
+require "factory_bot_rails"
 
 User.find_or_create_by(email: "admin") do |a|
   a.admin = true
@@ -15,5 +16,5 @@ User.find_or_create_by(email: "admin") do |a|
 end
 
 4.times do
-  Factory.create :full_user
+  FactoryBot.create :full_user
 end
